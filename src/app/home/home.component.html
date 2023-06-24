@@ -1,0 +1,18 @@
+
+<p *ngIf="displayEmail!=null">Email: {{displayEmail}}</p>
+<p *ngIf="displayname!=null">Name: {{displayname}}</p>
+
+<button routerLink="/host">Host game</button> <br>
+<button routerLink="/mygames">My Games</button> 
+
+<br>
+<br>
+
+<form (submit)="submitData()">
+    <input [(ngModel)]='code' name='code' type="text" placeholder="code">
+    <button>Join Game</button>
+</form>
+
+
+<button (click)="loginFunction()" >Login</button>
+<button (click)="getDisplayname()" >display</button>

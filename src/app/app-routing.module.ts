@@ -1,7 +1,39 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GameComponent } from './game/game.component';
+import { HomeComponent } from './home/home.component';
+import { MygamesComponent } from './mygames/mygames.component';
+import { NameComponent } from './name/name.component';
+import { NamedetailsComponent } from './namedetails/namedetails.component';
+import { PlaygameComponent } from './playgame/playgame.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'details/:name',
+    component: NamedetailsComponent,
+  },
+  {
+    path: 'host',
+    component: NameComponent,
+  },
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'mygames',
+    component: MygamesComponent,
+  },
+  {
+    path: 'game/:name',
+    component: GameComponent,
+  },
+  {
+    path: 'playgamegame/:name',
+    component: PlaygameComponent,
+  },
+  // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,62 @@
+
+<h5>Welcome</h5>
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Code</th>
+     
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td>{{ questiondata?.name }}</td>
+        <td>{{ questiondata?.description }}</td>
+        <td>{{ questiondata?.code }}</td>
+     
+      </tr>
+   
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+  {{ start }}
+  <div *ngIf="start==true">
+    <h5>Question {{index + 1}}</h5>
+    <h5>COUNTDOWN: {{ countdown }}</h5>
+  <p>Question: {{questiondata?.question }} </p>
+  <p>Option A: {{questiondata?.optiona }}</p>
+  <p>Option B: {{questiondata?.optionb }}</p>
+  <p>Option C: {{questiondata?.optionc }}</p>
+  <p>Option D: {{questiondata?.optiond }}</p>
+  </div>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Option A</th>
+        <th>Option B</th>
+        <th>Option C</th>
+        <th>Option D</th>
+        <th>Answer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of datalist ">
+        <td>{{ item.question }}</td>
+        <td>{{ item.optiona }}</td>
+        <td>{{ item.optionb }}</td>
+        <td>{{ item.optionc }}</td>
+        <td>{{ item.optiond }}</td>
+        <td>{{ item.answer }}</td>
+      </tr>
+   
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+<br>
+<br>
+
+<button (click)="startGame()" >Start Game</button>

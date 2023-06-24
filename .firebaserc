@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tokada-367df": {
+      "hosting": {
+        "gowave": [
+          "tokada-367df"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tokada-367df"
+  }
+}

@@ -1,0 +1,45 @@
+
+
+
+
+<table>
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Option A</th>
+        <th>Option B</th>
+        <th>Option C</th>
+        <th>Option D</th>
+        <th>Answer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of datalist ">
+        <td>{{ item.question }}</td>
+        <td>{{ item.optiona }}</td>
+        <td>{{ item.optionb }}</td>
+        <td>{{ item.optionc }}</td>
+        <td>{{ item.optiond }}</td>
+        <td>{{ item.answer }}</td>
+      </tr>
+   
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+
+  <h5>Set question</h5>
+<form (submit)="sendMessage()"> 
+  <input [(ngModel)]='name.question' name='name' type="text" placeholder="question"> <br>
+  <input [(ngModel)]='name.optiona' name='optiona' type="text" placeholder="option a"><br>
+  <input [(ngModel)]='name.optionb' name='optiona' type="text" placeholder="option b"><br>
+  <input [(ngModel)]='name.optionc' name='optiona' type="text" placeholder="option c"><br>
+  <input [(ngModel)]='name.optiond' name='optiona' type="text" placeholder="option d"><br>
+
+  <select [(ngModel)]='name.answer' name="answer"> 
+    <option value="A">A</option> 
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
