@@ -90,7 +90,7 @@ constructor(private firestore: AngularFirestore, private router: Router,private 
     .then((docRef) => {
       const id = docRef.id; // Get the generated document ID
       console.log(id, 'response is here...');
-      this.router.navigate(['/details', id]);
+      this.router.navigate(['/details', code]);
     })    
     .catch((error) =>{
       

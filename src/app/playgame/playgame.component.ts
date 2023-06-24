@@ -31,6 +31,9 @@ export class PlaygameComponent implements OnInit {
 
   constructor(private firestore: AngularFirestore, private router: Router,private actRoute: ActivatedRoute,) { 
     const myemail = localStorage.getItem('email')
+    if(myemail == null){
+      ///redirect
+    }
     console.log('initialize....')
     this.actRoute.params.subscribe((data)=> {
       var theid = data['name']

@@ -14,16 +14,16 @@ import { Detailsclass } from '../classes/detailsclass';
   styleUrls: ['./namedetails.component.css']
 })
 export class NamedetailsComponent implements OnInit {
-  dataId = '';
+  code = '';
   name =  Detailsclass.initializeData()
   datalist:Detailsclass[] = []
   constructor(private firestore: AngularFirestore, private router: Router,private actRoute: ActivatedRoute,) {
     console.log('initialize....')
     this.actRoute.params.subscribe((data)=> {
       var theid = data['name']
-      this.dataId = theid
+      this.code = theid
 
-      this.firestore.collection('questions', ref => ref.where('nameID', '==', this.dataId))
+      this.firestore.collection('questions', ref => ref.where('code', '==', this.code))
   .snapshotChanges()
   .subscribe(
     (querySnapshot) => {
@@ -54,7 +54,7 @@ export class NamedetailsComponent implements OnInit {
       this.firestore
       .collection('questions')          
       // .doc(this.dataId)
-      .add({'nameID':this.dataId, 'question':this.name.question, "optiona":this.name.optiona, "optionb":this.name.optionb, "optionc":this.name.optionc, "optiond":this.name.optiond, "answer":this.name.answer})
+      .add({'code':this.code, 'question':this.name.question, "optiona":this.name.optiona, "optionb":this.name.optionb, "optionc":this.name.optionc, "optiond":this.name.optiond, "answer":this.name.answer})
       .then((docRef) => {
         const id = docRef; // Get the generated document ID
         // console.log(id, 'response is here...');

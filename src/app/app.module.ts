@@ -17,6 +17,7 @@ import { GameComponent } from './game/game.component';
 import { MygamesComponent } from './mygames/mygames.component';
 import { AuthService } from './services/auth.service';
 import { PlaygameComponent } from './playgame/playgame.component';
+import { LoginComponent } from './login/login.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBOBefVMKOX7HeAvnuBlzHPElbXY9eoBC8",
@@ -35,7 +36,8 @@ const firebaseConfig = {
     HomeComponent,
     GameComponent,
     MygamesComponent,
-    PlaygameComponent
+    PlaygameComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
