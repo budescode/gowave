@@ -44,7 +44,7 @@ export class GameComponent implements OnInit {
             const theid = data['name'];
             this.dataId = theid;          
             this.firestore
-              .collection('questions', (ref) => ref.where('nameID', '==', this.docId))
+              .collection('questions', (ref) => ref.where('code', '==', this.dataId))
               .get()
               .subscribe((querySnapshot) => {
                 const data: Detailsclass[] = querySnapshot.docs.map((doc) => {
@@ -132,20 +132,28 @@ async getNextQuestion()  {
 
   if (this.index < this.datalist.length) {
     // The index is valid
-    this.index = this.index + 1
-    this.questiondata!.question = this.datalist[this.index].question
-    this.questiondata!.optiona = this.datalist[this.index].optiona
-    this.questiondata!.optionb = this.datalist[this.index].optionb
-    this.questiondata!.optionc = this.datalist[this.index].optionc
-    this.questiondata!.optiond = this.datalist[this.index].optiond
-    this.questiondata!.answer = this.datalist[this.index].answer
-    this.questiondata!.nameID = this.datalist[this.index].nameID
-    console.log('updating questuib,')
-    console.log({'question':this.questiondata!.question, 'optiona':this.questiondata!.optiona ,'optionb':this.questiondata!.optionb, 'optionc':this.questiondata!.optionc, 'optiond':this.questiondata!.optiond, 'answer':this.questiondata!.answer})
-    await this.updateGame({'question':this.questiondata!.question, 'optiona':this.questiondata!.optiona ,'optionb':this.questiondata!.optionb, 'optionc':this.questiondata!.optionc, 'optiond':this.questiondata!.optiond, 'answer':this.questiondata!.answer});
-    this.countdown = 10
-    this.countdownTImer()
-    return
+    try{
+      this.index = this.index + 1
+      this.questiondata!.question = this.datalist[this.index].question
+      this.questiondata!.optiona = this.datalist[this.index].optiona
+      this.questiondata!.optionb = this.datalist[this.index].optionb
+      this.questiondata!.optionc = this.datalist[this.index].optionc
+      this.questiondata!.optiond = this.datalist[this.index].optiond
+      this.questiondata!.answer = this.datalist[this.index].answer
+      this.questiondata!.nameID = this.datalist[this.index].nameID
+      console.log('updating questuib,')
+      console.log({'question':this.questiondata!.question, 'optiona':this.questiondata!.optiona ,'optionb':this.questiondata!.optionb, 'optionc':this.questiondata!.optionc, 'optiond':this.questiondata!.optiond, 'answer':this.questiondata!.answer})
+      await this.updateGame({'question':this.questiondata!.question, 'optiona':this.questiondata!.optiona ,'optionb':this.questiondata!.optionb, 'optionc':this.questiondata!.optionc, 'optiond':this.questiondata!.optiond, 'answer':this.questiondata!.answer});
+      this.countdown = 10
+      this.countdownTImer()
+    }catch(e){
+      console.log(e, 'error')
+      await  this.updateGame({'end':true,});
+      this.countdown = 10
+      this.end = true
+    }
+
+    
   } else {
     // The index is out of bounds so endgame
     await  this.updateGame({'end':true,});
