@@ -37,10 +37,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/style.css",
-              "src/assets/css/owl.carousel.css",
-              "src/assets/css/owl.carousel.min.css",
-              "src/assets/css/owl.theme.default.min.css"
+              "src/assets/css/style.css"
+         
             ],
             "scripts": [
               "src/assets/js/jquery-1.12.4.min.js",
