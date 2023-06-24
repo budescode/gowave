@@ -36,9 +36,19 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/style.css",
+              "src/assets/css/owl.carousel.css",
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/owl.theme.default.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery-1.12.4.min.js",
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/main.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/script.js"
+            ]
           },
           "configurations": {
             "production": {
