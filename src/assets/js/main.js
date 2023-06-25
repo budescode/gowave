@@ -1,3 +1,13 @@
+const Toggle = document.querySelector('.sidenav_hamburger');
+const hamburg = document.querySelector('.sidenav_hamburger');
+const men = document.querySelector('.mobile-nav');
+
+Toggle.addEventListener('click', function() {
+   men.classList.toggle("menu-open");
+   hamburg.classList.toggle("menu-open");
+}); 
+
+
 (function($) {
     "use strict";
 
@@ -75,9 +85,16 @@
 
 })(jQuery); // End jQuery
 
-{/* <div class="owl-carousel">
+
+
+
+
+{
+  
+  /* <div class="owl-carousel">
   <!-- Carousel items here -->
 </div>
+
 
 <button id="prevButton">Previous</button>
 <button id="nextButton">Next</button> */}

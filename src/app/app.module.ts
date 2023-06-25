@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore,  } from '@angular/fire/firestore';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule,  } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
@@ -25,6 +25,9 @@ import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardnavComponent } from './dashboardnav/dashboardnav.component';
 import { DashboardhostComponent } from './dashboardhost/dashboardhost.component';
+import { NotifierModule } from 'angular-notifier';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { GettokenComponent } from './gettoken/gettoken.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBOBefVMKOX7HeAvnuBlzHPElbXY9eoBC8",
@@ -51,13 +54,17 @@ const firebaseConfig = {
     NavComponent,
     DashboardComponent,
     DashboardnavComponent,
-    DashboardhostComponent
+    DashboardhostComponent,
+    GettokenComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NotifierModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule, 
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule, 
     

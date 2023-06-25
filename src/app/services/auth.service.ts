@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { GoogleAuthProvider, User } from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Client, PrivateKey, AccountId, TokenCreateTransaction, AccountCreateTransaction, AccountBalanceQuery, Hbar, TransferTransaction, FileCreateTransaction, ContractCreateTransaction, ContractExecuteTransaction, ContractFunctionParameters, ContractCallQuery } from "@hashgraph/sdk";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,8 @@ export class AuthService {
   constructor(
     public afAuth: AngularFireAuth, // Inject Firebase auth service,
     private firestore: AngularFirestore, 
+    private router: Router,
+    private spinner: NgxSpinnerService,
   ) {}
   // Sign in with Google
   GoogleAuth() {
@@ -43,8 +46,9 @@ export class AuthService {
   }
 
   async getOrCreateUserProfile(email:string,){
+    this.spinner.show()
     console.log('getting the user data')
-    this.firestore.collection('userprofile').ref.where('email', '==', email).get().then(
+    await this.firestore.collection('userprofile').ref.where('email', '==', email).get().then(
       async (querySnapshot) => {
         if (!querySnapshot.empty) {
           const document = querySnapshot.docs[0];
@@ -52,6 +56,8 @@ export class AuthService {
           const documentId = document.id;
           console.log(documentData, 'it is here...');
           console.log('USER ID:', documentId);
+          this.spinner.hide()
+        this.router.navigate(['/dashboard']);
         
         } else {
           console.log('No matching documents found.');
@@ -60,24 +66,27 @@ export class AuthService {
         //// create new user
         const hederaAcc = await this.createHederaAccount()
         var userdata = {'email':email, 'accountID':hederaAcc[0], 'privateKey': hederaAcc[2]}
-            this.firestore
+          await  this.firestore
       .collection('userprofile')    
       .add(userdata)
       .then((docRef) => {
         const id = docRef.id; // Get the generated document ID
         console.log(id, 'response is here...');
-        // this.router.navigate(['/details', id]);
+        this.spinner.hide()
+        this.router.navigate(['/dashboard']);
       })    
       .catch((error) =>{
-        
+        this.spinner.hide()
       });
   
         } //else
       },
       (error) => {
         console.log('Error getting documents:', error);
+        this.spinner.hide()
       }
     );
+    this.spinner.hide()
   }
 
   async createHederaAccount(){
@@ -99,7 +108,7 @@ export class AuthService {
     //Create a new account with 1,000 tinybar starting balance
     const newAccount = await new AccountCreateTransaction()
     .setKey(newAccountPublicKey)
-    .setInitialBalance(Hbar.fromTinybars(1000))
+    .setInitialBalance(Hbar.fromTinybars(0))
     
 
     .execute(client);

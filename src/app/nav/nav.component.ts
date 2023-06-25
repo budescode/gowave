@@ -13,7 +13,7 @@ import { connectToMetamask } from '../services/metamaskService';
 export class NavComponent implements OnInit {
   displayname: string | null = null 
   displayEmail: string | null  = null
-  constructor(private router: Router,public authService: AuthService,  public afAuth: AngularFireAuth ) {   
+  constructor(public authService: AuthService,  public afAuth: AngularFireAuth ) {   
     this.displayname = localStorage.getItem('displayName')
     this.displayEmail= localStorage.getItem('email')
   }

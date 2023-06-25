@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Createclass } from '../classes/createclass';
 import { Detailsclass } from '../classes/detailsclass';
+import { Leadershipclass } from '../classes/leadershipclass';
 
 @Component({
   selector: 'app-game',
@@ -21,6 +22,7 @@ export class GameComponent implements OnInit {
   countdown = 10;
   datalist:Detailsclass[] = []
   index = 0; //this will be changed along with the data list.
+  leadershipList:Leadershipclass[] = []
 
 
   constructor(private firestore: AngularFirestore, private router: Router,private actRoute: ActivatedRoute,) { 
@@ -28,7 +30,6 @@ export class GameComponent implements OnInit {
     this.actRoute.params.subscribe((data)=> {
       var theid = data['name']
       this.dataId = theid
-      console.log('qZAPp5shX35w9OXhyvXq', this.dataId)
 ///////////////////get  game code data
       this.firestore.collection('name', ref => ref.where('code', '==', this.dataId))
   .snapshotChanges()
@@ -72,6 +73,22 @@ export class GameComponent implements OnInit {
     }
   );
   ///////////////////get  game code data
+
+////////////get leadership board/////////////////////////
+  this.firestore
+  .collection('leadershipboard', (ref) => ref.where('code', '==', this.dataId).orderBy('score', 'desc')              
+  ).snapshotChanges()
+  .subscribe((querySnapshot) => {
+    const data: Leadershipclass[] = querySnapshot.map((docChange) => {
+      const id = docChange.payload.doc.id;
+      const documentData = docChange.payload.doc.data();
+      return Object.assign({ id }, documentData) as unknown as Leadershipclass;
+    });
+    this.leadershipList = data;
+  },
+  ////////////get leadership board/////////////////////////
+
+  );
 
     })
   }

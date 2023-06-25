@@ -175,7 +175,7 @@
     "symbol-observable" "4.0.0"
     "uuid" "8.3.2"
 
-"@angular/common@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/common@~13.3.0", "@angular/common@13.3.12":
+"@angular/common@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/common@^13.0.0", "@angular/common@>= 13.0.0 < 14.0.0", "@angular/common@~13.3.0", "@angular/common@13.3.12":
   "integrity" "sha512-Nk4zNKfda92aFe+cucHRv2keyryR7C1ZnsurwZW9WZSobpY3z2tTT81F+yy35lGoMt5BDBAIpfh1b4j9Ue/vMg=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-13.3.12.tgz"
   "version" "13.3.12"
@@ -205,7 +205,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/core@~13.3.0", "@angular/core@13.3.12":
+"@angular/core@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/core@^13.0.0", "@angular/core@>= 13.0.0 < 14.0.0", "@angular/core@~13.3.0", "@angular/core@13.3.12":
   "integrity" "sha512-jx0YC+NbPMbxGr5bXECkCEQv2RdVxR8AJNnabkPk8ZjwCpDzROrbELwwS1kunrZUhffcD15IhWGBvf1EGHAYDw=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-13.3.12.tgz"
   "version" "13.3.12"
@@ -2640,6 +2640,13 @@
     "json-schema-traverse" "^1.0.0"
     "require-from-string" "^2.0.2"
     "uri-js" "^4.2.2"
+
+"angular-notifier@^11.0.0":
+  "integrity" "sha512-A8EzAoao6KuT6EbZeDA4Zn5x2fDuIusQLLnz/lZsWFbDoNwwWjE0v0CRcX4jsm/cACTBqrZyK7+qFzy4ROXcAQ=="
+  "resolved" "https://registry.npmjs.org/angular-notifier/-/angular-notifier-11.0.0.tgz"
+  "version" "11.0.0"
+  dependencies:
+    "tslib" "2.3.x"
 
 "ansi-colors@4.1.1":
   "integrity" "sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA=="
@@ -5754,6 +5761,13 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
+"ngx-spinner@^13.1.1":
+  "integrity" "sha512-6aJz4KxIsBrlQckJxcM3CEvMcYbZoSDnQZPu0F/ZYAYunbBOTb9iydw0Gjczg9moum1VURWjX5dTVKmFo85c2Q=="
+  "resolved" "https://registry.npmjs.org/ngx-spinner/-/ngx-spinner-13.1.1.tgz"
+  "version" "13.1.1"
+  dependencies:
+    "tslib" "^2.3.0"
+
 "nice-napi@^1.0.2":
   "integrity" "sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA=="
   "resolved" "https://registry.npmjs.org/nice-napi/-/nice-napi-1.0.2.tgz"
@@ -7726,6 +7740,11 @@
   "version" "2.5.3"
 
 "tslib@2.3.1":
+  "integrity" "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz"
+  "version" "2.3.1"
+
+"tslib@2.3.x":
   "integrity" "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz"
   "version" "2.3.1"

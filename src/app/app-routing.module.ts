@@ -4,6 +4,8 @@ import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardhostComponent } from './dashboardhost/dashboardhost.component';
 import { GameComponent } from './game/game.component';
+import { GettokenComponent } from './gettoken/gettoken.component';
+import { AuthGuardService } from './guard/auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { MygamesComponent } from './mygames/mygames.component';
 import { NameComponent } from './name/name.component';
@@ -16,10 +18,12 @@ const routes: Routes = [
   {
     path: 'details/:name',
     component: NamedetailsComponent,
+  canActivate: [AuthGuardService]
   },
   {
     path: 'host',
     component: NameComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: '',
@@ -28,14 +32,17 @@ const routes: Routes = [
   {
     path: 'mygames',
     component: MygamesComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'game/:name',
     component: GameComponent,
+    canActivate: [AuthGuardService]
   },
   {
-    path: 'playgamegame/:name',
+    path: 'playgame/:name',
     component: PlaygameComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'signin',
@@ -52,10 +59,17 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'dashboard/hostgame',
     component: DashboardhostComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'hederatoken',
+    component: GettokenComponent,
+    canActivate: [AuthGuardService]
   },
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];

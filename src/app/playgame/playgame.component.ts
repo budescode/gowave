@@ -141,7 +141,7 @@ export class PlaygameComponent implements OnInit {
             
               );
 
-        
+         
       ////////////////////////////
 
 

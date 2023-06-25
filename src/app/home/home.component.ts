@@ -136,6 +136,6 @@ this.client.setOperator(this.myAccountId, this.myPrivateKey);
   }
 
   submitData(){
-    this.router.navigate(['/playgamegame', this.code]);
+    this.router.navigate(['/playgame', this.code]);
   }
 }

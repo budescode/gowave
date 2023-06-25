@@ -1,48 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<body>
+<div class="mobile-sidebar position-relative">
+    <div>
+        <a href="dashboard.html" class="text-decoration-none">
+            <span class="fs-5 ">
+                <img src="assets/image/logo/Logo.png" width="100" alt="">
+            </span>
+        </a>
+    </div>
+    <div class="sidenav_hamburger">
+        <div class="line line-half first-line"></div>
+        <div class="line"></div>
+        <div class="line line-half last-line"></div>
+    </div>
+   <nav class="bg-white shadow position-absolute top-0 mobile-nav">
+    <div class="d-flex flex-column align-items-md-center align-items-sm-start  text-white  sidenav">
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-md-center align-items-sm-start" id="menu">
+            <li class="nav-item mb-md-2 mb-3">
+                <a href="dashboard.html" class="nav-link px-0">
+                    <i class="fs-6 bi-grid"></i> 
+                    <span class="ms-1">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2 mb-3">
+                <a href="host.html" class="nav-link px-0">
+                    <i class="fs-6 bi-files"></i> 
+                    <span class="ms-1">Host Game</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2  mb-3 active-nav">
+                <a href="quiz.html" class="nav-link px-0">
+                    <i class="fs-6 bi-database"></i> 
+                    <span class="ms-1">My game</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2 mb-3">
+                <a href="#" class="nav-link px-0">
+                    <i class="fs-6 bi-question-circle"></i> 
+                    <span class="ms-1">FAQs</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2 mb-3">
+                <a href="#" class="nav-link px-0">
+                    <i class="fs-6 bi-chat-dots"></i> 
+                    <span class="ms-1">Chat</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2 mb-3">
+                <a href="#" class="nav-link px-0">
+                    <i class="fs-6 bi-box-arrow-left text-danger"></i> 
+                    <span class="ms-1">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+   </nav>
+</div>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow mobile" style="background-color: #FCFCFC;">
+          <app-dashboardnav></app-dashboardnav>
+        </div>
+        <div class="col-12 col-md-10 py-3">
+            <div class="main">
+                <div class="container">
 
+                  <div class="row">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover" border="1">
+                            <thead>
+                                <tr>
+                                    <th>Question</th>
+                                    <th>Option A</th>
+                                    <th>Option B</th>
+                                    <th>Option C</th>
+                                    <th>Option D</th>
+                                    <th>Answer</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of datalist ">
+                                    <td>{{ item.question }}</td>
+                                    <td>
+                                        {{ item.optiona }}
+                                    </td>
+                                    <td>{{ item.optionb }}</td>
+                                    <td>{{ item.optionc }}</td>
+                                    <td>{{ item.optiond }}</td>
+                                    <td>{{ item.answer }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <input routerLink="/game/{{code}}" type="button" value="Start Game" class="btn_set">
 
+                    <div class="row">                    
+                      <div class="col-md-12 col-12 py-5">
+                        <h3>QUESTIONS</h3>
+                        <div class="set_question">
+                            <p>
+                               Set your questions below
+                            </p>
+                        </div>
+                      </div>
 
-<table>
-    <thead>
-      <tr>
-        <th>Question</th>
-        <th>Option A</th>
-        <th>Option B</th>
-        <th>Option C</th>
-        <th>Option D</th>
-        <th>Answer</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of datalist ">
-        <td>{{ item.question }}</td>
-        <td>{{ item.optiona }}</td>
-        <td>{{ item.optionb }}</td>
-        <td>{{ item.optionc }}</td>
-        <td>{{ item.optiond }}</td>
-        <td>{{ item.answer }}</td>
-      </tr>
-   
-      <!-- Add more rows as needed -->
-    </tbody>
-  </table>
+            
 
-  <h5>Set question</h5>
-<form (submit)="sendMessage()"> 
-  <input [(ngModel)]='name.question' name='name' type="text" placeholder="question"> <br>
-  <input [(ngModel)]='name.optiona' name='optiona' type="text" placeholder="option a"><br>
-  <input [(ngModel)]='name.optionb' name='optiona' type="text" placeholder="option b"><br>
-  <input [(ngModel)]='name.optionc' name='optiona' type="text" placeholder="option c"><br>
-  <input [(ngModel)]='name.optiond' name='optiona' type="text" placeholder="option d"><br>
+                        <div class="col-md-10 col-12">
+                            <form (submit)="sendMessage()">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="form-group">
+                                          <label>Question</label>
+                                            
+                                            <input class="form-control" [(ngModel)]='name.question' name='name' type="text" placeholder="question">
+                                        </div>
+                                        <div class="form-group">
+                                          <label>Option A</label> &nbsp;&nbsp;
+                                          <button  class="btn-sm" style="background: #A43636;flex-basis: 40%;border: 1px solid #A43636;">
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/image/icon/Polygon 2.png" width="20" alt="">                                                
+                                            </div>
+                                          </button>
 
-  <select [(ngModel)]='name.answer' name="answer"> 
-    <option value="A">A</option> 
-    <option value="B">B</option>
-    <option value="C">C</option>
-    <option value="D">D</option>
-  </select>
-  <button type="submit">Submit</button>
-</form>
+                                          <input class="form-control" [(ngModel)]='name.optiona' name='optiona' type="text" placeholder="option a"><br>
+                                        </div>
+                                        <div class="form-group">
+                                          <label>Option B </label>
+                                          <button  class="btn-sm" style="flex-basis: 40%;background: #4C4DDC;border:1px solid #4C4DDC;">
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/image/icon/Polygon 3.png" width="20" alt="">                                                
+                                            </div>
+                                          </button>
+                                          <input class="form-control" [(ngModel)]='name.optionb' name='optionb' type="text" placeholder="option b"><br>
+                                        </div>
+                                        <div class="form-group">
+                                          <label>Option C</label>
+                                          <button  class="btn-sm" style="flex-basis: 40%;background: #FD5;border:1px solid #FD5;">
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/image/icon/Polygon 4.png" width="20" alt="">                                                
+                                            </div>
+                                          </button>
+                                          <input class="form-control" [(ngModel)]='name.optionc' name='optionc' type="text" placeholder="option c"><br>
+                                        </div>
+                                        <div class="form-group">
+                                          <label>Option D</label>
+                                          <button  class="btn-sm" style="flex-basis: 40%;background: #FD44B3;border:1px solid #FD44B3;">
+                                            <div class="d-flex align-items-center">
+                                                <img src="assets/image/icon/Polygon 4.png" width="20" alt="">                                                
+                                            </div>
+                                          </button>
+                                          <input class="form-control" [(ngModel)]='name.optiond' name='optiond' type="text" placeholder="option d"><br>
+                                        </div>
+                                        <div class="form-group">
+                                          <label>Correct Option</label>
+                                          <select [(ngModel)]='name.answer' name="answer"> 
+                                            <option value="A">A</option> 
+                                            <option value="B">B</option>
+                                            <option value="C">C</option>
+                                            <option value="D">D</option>
+                                          </select>
+                                        </div>
+                                        <div class="col-md-12 col-12 text-end">
+                                            <input type="submit" value="Submit" class="btn_set">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+</body>
 
-<hr>
-<button routerLink="/game/{{code}}">Start Game</button>
+</html>
+    
