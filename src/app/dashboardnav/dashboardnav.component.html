@@ -15,13 +15,17 @@
                 <i class="fs-6 bi-files"></i> <span class="ms-1 d-none d-sm-inline">Host Game</span>
             </a>
         </li>
-        <li class="nav-item mb-md-2">
-            <a href="#" class="nav-link align-middle px-0">
-                <i class="fs-6 bi-database"></i> <span class="ms-1 d-none d-sm-inline">My games</span>
+       
+        <li class="nav-item mb-md-2" [class.active-nav]="currentUrl == '/dashboard/hederatoken'">
+            <a routerLink='/dashboard/hederatoken' class="nav-link align-middle px-0">
+                <i class="fs-6 bi-database"></i> <span class="ms-1 d-none d-sm-inline">Hedera Token</span>
             </a>
         </li>
-
-             
+              <li class="nav-item mb-md-2">
+            <a routerLink='/' class="nav-link align-middle px-0">
+                <i class="fs-6 bi-database"></i> <span class="ms-1 d-none d-sm-inline">Join Game</span>
+            </a>
+        </li>
     </ul>
     <hr>
 

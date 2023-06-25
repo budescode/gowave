@@ -12,13 +12,15 @@ export class Createclass {
         public optiond: string,
         public answer: string,
         public nameID: string,
+        public rewardhbar: string,
+        public hbaramount: string,
 
 
         
     ) {
     }
     static initializeData(){
-        return new Createclass('', '', false, false, '', '', '', '', '', '', '', '')
+        return new Createclass('', '', false, false, '', '', '', '', '', '', '', '', '', '')
     }
     toMap(){
         return {'name':this.name, "description":this.description}

@@ -1,1 +1,126 @@
-<p>gettoken works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="mobile-sidebar position-relative">
+    <div>
+        <a href="dashboard.html" class="text-decoration-none">
+            <span class="fs-5 ">
+                <img src="assets/image/logo/Logo.png" width="100" alt="">
+            </span>
+        </a>
+    </div>
+    <div class="sidenav_hamburger">
+        <div class="line line-half first-line"></div>
+        <div class="line"></div>
+        <div class="line line-half last-line"></div>
+    </div>
+   <nav class="bg-white shadow position-absolute top-0 mobile-nav">
+    <div class="d-flex flex-column align-items-md-center align-items-sm-start  text-white  sidenav">
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-md-center align-items-sm-start" id="menu">
+            <li class="nav-item mb-md-2 mb-3">
+                <a href="dashboard.html" class="nav-link px-0">
+                    <i class="fs-6 bi-grid"></i> 
+                    <span class="ms-1">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2 mb-3">
+                <a href="host.html" class="nav-link px-0">
+                    <i class="fs-6 bi-files"></i> 
+                    <span class="ms-1">Host Game</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2  mb-3 active-nav">
+                <a href="quiz.html" class="nav-link px-0">
+                    <i class="fs-6 bi-database"></i> 
+                    <span class="ms-1">My game</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2 mb-3">
+                <a href="#" class="nav-link px-0">
+                    <i class="fs-6 bi-question-circle"></i> 
+                    <span class="ms-1">FAQs</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2 mb-3">
+                <a href="#" class="nav-link px-0">
+                    <i class="fs-6 bi-chat-dots"></i> 
+                    <span class="ms-1">Chat</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2 mb-3">
+                <a href="#" class="nav-link px-0">
+                    <i class="fs-6 bi-box-arrow-left text-danger"></i> 
+                    <span class="ms-1">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+   </nav>
+</div>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow mobile" style="background-color: #FCFCFC;">
+          <app-dashboardnav></app-dashboardnav>
+        </div>
+        <div class="col-12 col-md-10 py-3">
+            <div class="main">
+                <div class="container">
+
+                  <div class="row">
+                 
+                </div>
+               
+                    <div class="row">                    
+                      <div class="col-md-12 col-12 py-5">
+                        <h3>HEDERA TOKEN</h3>
+                        <div class="set_question">
+                            <p>
+                               To host a game, you need to set the HBAR you want to reward the winner, this means you need to get the Hedera Token(HBAR) to do this.
+                               
+                            </p>
+
+                            <h6>Step 1: Create Hedera Portal Profile (Faucet)</h6>
+                            <p>Visit the <a href="https://portal.hedera.com/register"> Hedera portal</a> to create your Hedera Testnet account and follow the instructions</p>
+                            <img src="assets/image/hedera.png" width='550'> <br>
+                            <p>Once you have completed the instructions, you will receive a Hedera Testnet account ID (0.0.x) and your private/public key pair on your testnet page. You will need to copy over your account ID and the DER-encoded private key information when you set up your account.</p>
+                            <img src="assets/image/hedera2.png" width='550'>
+                            <p>Note: Your Hedera Testnet account will be credited with 10,000 test HBAR upon creation that can only be utilized on the Hedera test network. Your balance will be topped up daily to 10,000 test HBAR when you use your funds.</p>
+                        </div>
+                      </div>
+
+            
+
+                        <div class="col-md-10 col-12">
+                            <form (submit)="submitData()">
+                                <div class="container-fluid">
+                                    <div class="row">
+
+                                        <div class="form-group">
+                                          <label>Private Key</label>                                            
+                                            <input class="form-control" [(ngModel)]='privatekey' name='privatekey' type="text" placeholder="Private Key">
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                            <label>Account ID</label>                                            
+                                              <input class="form-control" [(ngModel)]='accountid' name='accountid' type="text" placeholder="Account ID">
+                                          </div>
+                                        
+                                        <div class="col-md-12 col-12 text-end">
+                                            <input type="submit" value="Submit" class="btn_set">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+</body>
+
+</html>
+    

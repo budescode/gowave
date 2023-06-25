@@ -130,7 +130,8 @@ export class PlaygameComponent implements OnInit {
        this.firestore
               .collection('leadershipboard', (ref) => ref.where('code', '==', this.code).orderBy('score', 'desc')              
               ).snapshotChanges()
-              .subscribe((querySnapshot) => {
+              .subscribe(
+                (querySnapshot) => {
                 const data: Leadershipclass[] = querySnapshot.map((docChange) => {
                   const id = docChange.payload.doc.id;
                   const documentData = docChange.payload.doc.data();

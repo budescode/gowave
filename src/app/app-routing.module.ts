@@ -67,7 +67,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'hederatoken',
+    path: 'dashboard/hederatoken',
     component: GettokenComponent,
     canActivate: [AuthGuardService]
   },

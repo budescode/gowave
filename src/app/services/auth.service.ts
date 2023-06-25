@@ -75,7 +75,7 @@ export class AuthService {
         this.spinner.hide()
         this.router.navigate(['/dashboard']);
       })    
-      .catch((error) =>{
+      .catch((error) =>{ 
         this.spinner.hide()
       });
   
