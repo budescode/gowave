@@ -59,6 +59,8 @@
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Code</th>
+                                        <th>Reward HBAR?</th>
+                                        <th>HBAR Amount</th>
                                         <th>View</th>
                                     </tr>
                                 </thead>
@@ -69,7 +71,9 @@
                                             {{ item.description }}
                                         </td>
                                         <td>{{ item.code }}</td>
-                                        <td routerLink="/details/{{item.code}}">
+                                        <td>{{ item.rewardhbar }}</td>
+                                        <td>{{ item.hbaramount }}</td>
+                                        <td style="cursor: pointer;" routerLink="/details/{{item.code}}">
                                             View
                                         </td>
                                     </tr>
