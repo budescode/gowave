@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Firestore, collectionData, collection, Timestamp } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -8,13 +7,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Createclass } from '../classes/createclass';
 
-
 @Component({
-  selector: 'app-name',
-  templateUrl: './name.component.html',
-  styleUrls: ['./name.component.css']
+  selector: 'app-dashboardhost',
+  templateUrl: './dashboardhost.component.html',
+  styleUrls: ['./dashboardhost.component.css']
 })
-export class NameComponent implements OnInit {
+export class DashboardhostComponent implements OnInit {
+
 
   listdata:Createclass[] = []
   
@@ -78,7 +77,6 @@ constructor(private firestore: AngularFirestore, private router: Router,private 
 
   ngOnInit(): void {
   }
-
 
 }
  

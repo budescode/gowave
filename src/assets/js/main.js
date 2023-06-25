@@ -28,6 +28,32 @@
                 }
             }
         });
+        /* ==================================================
+            #  Quiz Carousel
+         ===============================================*/
+         $('#quiz-silder').owlCarousel({
+            loop: false,
+            margin: 30,
+            nav: false,
+            dots: false,
+            autoplay:true,
+            navText: [
+                "<i class='bi-arrow-left'></i>",
+                "<i class='bi-arrow-right'></i>"
+            ],
+            
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
 
 
         /* ==================================================

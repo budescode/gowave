@@ -19,6 +19,15 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const navbarToggle = document.querySelector('.hamburger-menu') as HTMLElement;
+const hamburger = document.querySelector('.hamburger') as HTMLElement;
+const menu = document.querySelector('.menu-items') as HTMLElement;
+
+navbarToggle.addEventListener('click', function() {
+   menu.classList.toggle("menu-open");
+   hamburger.classList.toggle("menu-open");
+});
+
   }
   async loginFunction(){
     console.log('login clicked..')

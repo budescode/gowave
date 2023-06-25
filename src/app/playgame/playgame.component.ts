@@ -183,7 +183,7 @@ this.firestore
         .catch((error) => {
           console.error('Error updating score:', error);
         });
-    });
+    }); 
   });
 }
 getOrCreateUser(email:string, code:string){

@@ -44,8 +44,9 @@
               "src/assets/js/jquery-1.12.4.min.js",
               "src/assets/js/jquery.min.js",
               "src/assets/js/main.js",
-              "src/assets/js/owl.carousel.min.js",
               "src/assets/js/script.js"
+              
+              
             ]
           },
           "configurations": {

@@ -22,6 +22,9 @@ import { AboutComponent } from './about/about.component';
 import { SupportComponent } from './support/support.component';
 import { SigninComponent } from './signin/signin.component';
 import { NavComponent } from './nav/nav.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardnavComponent } from './dashboardnav/dashboardnav.component';
+import { DashboardhostComponent } from './dashboardhost/dashboardhost.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBOBefVMKOX7HeAvnuBlzHPElbXY9eoBC8",
@@ -45,7 +48,10 @@ const firebaseConfig = {
     AboutComponent,
     SupportComponent,
     SigninComponent,
-    NavComponent
+    NavComponent,
+    DashboardComponent,
+    DashboardnavComponent,
+    DashboardhostComponent
   ],
   imports: [
     BrowserModule,

@@ -29,24 +29,31 @@
                             Join Gowave in revolutionizing education through gamified learning, friendly competitions, and tangible HBAR rewards.
                         </p>
                         <div class="earn-btn">
-                            <form action="">
+                            <form (submit)="submitData()">
                                 <div class="gowave-row align-items-center">
                                     <div class="gowave-col-md-6 col-12 mb-4">
                                         <div class="position-relative">
-                                            <input type="email" name="" id="" class="gowave-form-control code_here ps-5" placeholder="Your email">
+                                            <input type="text" [(ngModel)]='code' name='code' class="gowave-form-control code_here ps-5" placeholder="Enter Code">
                                             <div class="position-absolute">
                                                 <img src="assets/image/envelope.png" width="20px" alt="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="gowave-col-md-6 col-12 mb-4 text-end">
+                                        
                                         <div class="play-game">
                                             <input type="submit"  class="join-btn" value="JOIN GAME">
-                                            <div class="play-game-icon">
+                                            <div class="play-game-icon" (click)="submitData()">
                                                 <img src="assets/image/Play.svg" alt="">
                                             </div>
                                         </div>
+                                    
                                     </div>
+
+                                    
+                                        
+                                        
+                                    
                                 </div>
                             </form>
                         </div>

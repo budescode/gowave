@@ -13,6 +13,7 @@
     --color-back:#000000;
     --section-color:#F8F8F8;
     --section-padding:40px   0 20px;
+    --neutral-90:#616161;
 }
 
 body{
@@ -1551,5 +1552,211 @@ select{
     }
     .overlay-shape4{
         top: 0px;
+    }
+}
+
+
+/* dashboard */
+
+.sidenav{
+    padding: 25px;
+}
+
+
+.sidenav ul li a{
+    font-size: 13px;
+    color: var(--neutral-90);
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.176px;
+    font-family: 'Inter', sans-serif;
+}
+
+.sidenav ul .nav-item.active-nav{
+    padding: 0px  70px 0px  10px;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+}
+
+.sidenav ul .nav-item.active-nav a{
+    color: var(--color-white);
+}
+
+.sidenav ul li a:hover{
+    color: var(--primary-color);
+}
+
+.search .form-control{
+    border-radius: 8px;
+}
+
+.search .form-control:focus{
+    overflow: none;
+    box-shadow: none;
+    border: 1px solid var(--primary-color);
+   
+}
+
+.main .search{
+    position: relative;
+}
+
+.main .search .search-icon{
+    position: absolute;
+    top: 20%;
+    left: 2%;
+}
+
+.main .title{
+    color: var(--color-back);
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.start-quiz-content p{
+    color: var(--color-back);
+    font-size: 17px;
+    font-family: 'Inter', sans-serif;
+}
+
+.start-quiz-content-image{
+    position: relative;
+    background-image: url('../image/quiz.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.075);
+    text-align: center;
+    width: 500px;
+    height: 300px;
+    padding-top:20px ;
+}
+
+.start-quiz-content-image h2{
+    color: var(--color-white);
+    font-size: 35px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.main .btn-quiz{
+    position: absolute;
+    bottom: 15%;
+    right:35%;
+}
+
+
+
+.main .btn-quiz a{
+    color: var(--color-white);
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    line-height: 24px;
+    border-radius: 30px;
+    padding: 10px  50px;
+    text-decoration: none;
+    background: #4C4DDC;
+}
+
+.main .my_games{
+    color: var(--color-back);
+    font-size: 23px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.main .quiz-silder{
+    width: 100%;
+}
+
+.main .quiz-box img{
+    width: 50%;
+}
+
+
+.main .btn-count-time{
+    border-radius: 31.892px;
+    border: 1px solid var(--primary-color);
+    background: var(--primary-color);
+    color: #FFF;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    padding: 10px  30px;
+    display: inline-block;
+}
+
+
+.main .question h3{
+    color: var(--color-back);
+    font-size: 44px;
+    font-family: 'Inter', sans-serif;
+}
+
+.main .question h3::after{
+    position: absolute;
+    content: "";
+    width: 180px;
+    height: 3px;
+    background-color: #FF0000;
+    top: 60px;
+    left: 0%;
+}
+
+.main .question p{
+    color: #3F3D56;
+    text-align: justify;
+    font-size: 20.200px;
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+}
+
+.main .question-boxs{
+  margin-right: 50px;
+}
+
+.main .question-boxs span{
+    color: var(--color-white);
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+}
+
+.main .question-boxs.box1{
+    padding: 33px 161px 29px 30px;
+    background: #A43636;
+    flex-basis: 40%;
+    border:1px solid #A43636;
+}
+
+.main .question-boxs.box2{
+    padding: 33px 161px 29px 30px;
+    flex-basis: 40%;
+    background-color: var(--primary-color);
+    border:1px solid var(--primary-color);
+}
+
+.main .question-boxs.box3{
+    padding: 33px 161px 29px 30px;
+    flex-basis: 40%;
+    background: #FD5;
+    border:1px solid #FD5;
+}
+
+.main .question-boxs.box4{
+    padding: 33px 161px 29px 30px;
+    flex-basis: 40%;
+    background: #FD44B3;
+    border:1px solid #FD44B3;
+}
+
+@media screen and (max-width:768px) {
+    .main .question-boxs{
+        padding: 33px 120px 29px 30px !important;
     }
 }

@@ -1,0 +1,47 @@
+<div class="d-flex flex-column align-items-center align-items-sm-start  text-white min-vh-100 sidenav">
+    <a routerLink="/dashboard" class="d-flex align-items-center pb-3 mb-md-5 me-md-auto text-white text-decoration-none">
+        <span class="fs-5 d-none d-sm-inline">
+            <img src="assets/image/logo/Logo.png" width="100" alt="">
+        </span>
+    </a>
+    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+        <li class="nav-item mb-md-2" [class.active-nav]="currentUrl == '/dashboard'">
+            <a routerLink="/dashboard" class="nav-link align-middle px-0">
+                <i class="fs-6 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item mb-md-2" [class.active-nav]="currentUrl == '/dashboard/hostgame'">
+            <a routerLink="/dashboard/hostgame" class="nav-link align-middle px-0">
+                <i class="fs-6 bi-files"></i> <span class="ms-1 d-none d-sm-inline">Host Game</span>
+            </a>
+        </li>
+        <li class="nav-item mb-md-2">
+            <a href="#" class="nav-link align-middle px-0">
+                <i class="fs-6 bi-database"></i> <span class="ms-1 d-none d-sm-inline">My games</span>
+            </a>
+        </li>
+
+             
+    </ul>
+    <hr>
+
+    <div>
+        <ul class="nav nav-pills flex-column  mb-0 align-items-center align-items-sm-start">
+            <li class="nav-item mb-md-2">
+                <a  class="nav-link align-middle px-0">
+                    <i class="fs-6 bi-question-circle"></i> <span class="ms-1 d-none d-sm-inline">FAQs</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2">
+                <a class="nav-link align-middle px-0">
+                    <i class="fs-6 bi-chat-dots"></i> <span class="ms-1 d-none d-sm-inline">Chat</span>
+                </a>
+            </li>
+            <li class="nav-item mb-md-2">
+                <a (click)="logoutFunction()" class="nav-link align-middle px-0">
+                    <i class="fs-6 bi-box-arrow-left text-danger"></i> <span class="ms-1 d-none d-sm-inline">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

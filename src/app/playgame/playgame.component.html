@@ -1,83 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<h5>Welcome</h5>
-<table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Code</th>
-     
-      </tr>
-    </thead>
-    <tbody>
-      <tr >
-        <td>{{ questiondata?.name }}</td>
-        <td>{{ questiondata?.description }}</td>
-        <td>{{ questiondata?.code }}</td>
-     
-      </tr>
-   
-      <!-- Add more rows as needed -->
-    </tbody>
-  </table>
-  {{ start }}
-  <div *ngIf="start==true">
-    <h5>Question {{index + 1}}</h5>
-    <h5>COUNTDOWN: {{ countdown }}</h5>
-  <p>Question: {{questiondata?.question }} </p>
-<div *ngIf="countdown!=0 && answered==false">
-  <button (click)="submitAnswer('A')">Option A: {{questiondata?.optiona }}</button> <br>
-  <button (click)="submitAnswer('B')">Option B: {{questiondata?.optionb }}</button><br>
-  <button (click)="submitAnswer('C')">Option C: {{questiondata?.optionc }}</button><br>
-  <button (click)="submitAnswer('D')">Option D: {{questiondata?.optiond }}</button><br>
+<body>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white shadow" style="background-color: #FCFCFC;">
+          <app-dashboardnav></app-dashboardnav>
+        </div>
+        <div class="col py-3">
+            <div class="main">
+              
+              <h5 *ngIf="start==false"> Game has not started.</h5>
+              <h5 *ngIf="end==true"> Game has ended.</h5>
 
-</div>
-  </div>
-  
-  <h5>My Details</h5>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Email</th>
-        <th>Score</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr >
-        <td>{{ mydetails?.email }}</td>
-        <td>{{ mydetails?.score?.toString() }}</td>
-        
-     
-      </tr>
-   
-      <!-- Add more rows as needed -->
-    </tbody>
-  </table>
-
-  <h5>Leadership board</h5>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Email</th>
-        <th>Score</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let i of leadershipList">
-        <td>{{ i.email }}</td>
-        <td>{{ i.score }}</td>
-        
-     
-      </tr>
-   
-      <!-- Add more rows as needed -->
-    </tbody>
-  </table>
-
-
-<br>
-<br>
-
-<!-- <button (click)="startGame()" >Start Game</button> -->
+                <div class="container" *ngIf="start==true">
+                    <div class="row py-5">
+                        <div class="col-md-12 col-12">
+                            <div class="count-time">
+                                <p class="btn-count-time">00:{{ countdown }}</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-12 py-3" *ngIf="countdown!=0 && answered==false">
+                            <div class="question">
+                                <div class="position-relative">
+                                    <h3>QUESTION {{index + 1}}</h3>
+                                </div>
+                                <p class="py-5">{{questiondata?.question }}</p>
+                            </div>
+                            <div class="question-box d-flex flex-wrap">
+                                <button (click)="submitAnswer('A')" class="question-boxs box1 mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/image/icon/Polygon 2.png" width="50" alt="">
+                                        <span class="ps-4">{{questiondata?.optiona }}</span>
+                                    </div>
+                                </button>
+                                <button (click)="submitAnswer('B')" class="question-boxs box2 mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/image/icon/Polygon 3.png" width="50" alt="">
+                                        <span class="ps-4">{{questiondata?.optionb }}</span>
+                                    </div>
+                                </button>
+                                <button (click)="submitAnswer('C')" class="question-boxs box3 mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/image/icon/Polygon 4.png" width="50" alt="">
+                                        <span class="ps-4">{{questiondata?.optionc }}</span>
+                                    </div>
+                                </button>
+                                <button (click)="submitAnswer('D')" class="question-boxs box4 mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/image/icon/Polygon 5.png" width="50" alt="">
+                                        <span class="ps-4">{{questiondata?.optiond }}</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+    

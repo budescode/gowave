@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardhostComponent } from './dashboardhost/dashboardhost.component';
 import { GameComponent } from './game/game.component';
 import { HomeComponent } from './home/home.component';
 import { MygamesComponent } from './mygames/mygames.component';
@@ -46,6 +48,14 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+  },
+  {
+    path: 'dashboard/hostgame',
+    component: DashboardhostComponent,
   },
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
