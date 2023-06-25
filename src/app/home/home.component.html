@@ -1,18 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gowave</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"  />
+</head> -->
+<body>
+    <!-- navbar section  -->
+<app-nav></app-nav>
 
-<p *ngIf="displayEmail!=null">Email: {{displayEmail}}</p>
-<p *ngIf="displayname!=null">Name: {{displayname}}</p>
+    <!-- earn and save token  -->
+    <section class="earn-save-token">
+        <div class="gowave-container">
+            <div class="gowave-row">
+                <div class="gowave-col-md-6 col-12">
+                    <div class="earn-save-content ">
+                        <h2>
+                            Earn & Save
+                            <span>Tokens by playing Games</span>
+                        </h2>
+                        <p>
+                            Join Gowave in revolutionizing education through gamified learning, friendly competitions, and tangible HBAR rewards.
+                        </p>
+                        <div class="earn-btn">
+                            <form action="">
+                                <div class="gowave-row align-items-center">
+                                    <div class="gowave-col-md-6 col-12 mb-4">
+                                        <div class="position-relative">
+                                            <input type="email" name="" id="" class="gowave-form-control code_here ps-5" placeholder="Your email">
+                                            <div class="position-absolute">
+                                                <img src="assets/image/envelope.png" width="20px" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gowave-col-md-6 col-12 mb-4 text-end">
+                                        <div class="play-game">
+                                            <input type="submit"  class="join-btn" value="JOIN GAME">
+                                            <div class="play-game-icon">
+                                                <img src="assets/image/Play.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="gowave-col-md-6 col-12">
+                    <div class="gowave-image">
+                        <img src="assets/image/leading_page.png" alt="" class="img-fluid" srcset="assets/image/leading_page.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<button routerLink="/host">Host game</button> <br>
-<!-- <button routerLink="/mygames">My Games</button>  -->
 
-<br>
-<br>
+    <!-- about  -->
+    <section class="about">
+        <div class="gowave-container">
+            <div class="gowave-row">
+                <div class="gowave-col-md-6 col-12 order-last">
+                    <div class="about-image">
+                        <img src="assets/image/about.png" alt="" class="img-fluid" width="400px" srcset="assets/image/about.png">
+                    </div>
+                </div>
+                <div class="gowave-col-md-6 col-12 order-first">
+                    <div class="about-content ">
+                        <h2>
+                            About
+                        </h2>
+                        <p>
+                            Gowave is an innovative educational platform that combines gamified learning, interactive quizzes, and competitions, all powered by Hedera Token (HBAR).
+                        </p>
+                        <p>
+                            Explore diverse interactive quizzes across subjects, boost knowledge retention, and create personalized competitions. Top performers earn HBAR tokens for their expertise.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
 
-<form (submit)="submitData()">
-    <input [(ngModel)]='code' name='code' type="text" placeholder="code">
-    <button>Join Game</button>
-</form>
+     <!-- How does it work  -->
+     <section class="how-does-it-work">
+        <div class="overlay_image1"><img src="assets/image/sharp_1.png" width="300" alt="shape"></div>
+        <div class="gowave-container">
+            <div class="gowave-row align-items-center">
+                <div class="gowave-col-md-6 col-12">
+                    <div class="how-does-it-work-content ">
+                        <h2>
+                            How does it work?
+                        </h2>
+                        <p>
+                            To be registered, create and host their own competitions, setting rules and inviting participants to showcase their skills, share the game and stand a chance to win tokens
+                        </p>
+                        <p>
+                            With Gowave, learners can dive into a diverse range of interactive quizzes across various subjects, enhancing their knowledge retention and engagement. 
+                        </p>
+                    </div>
+                </div>
+                <div class="gowave-col-md-6 col-12">
+                    <div class="gowave-image">
+                        <img src="assets/image/how-it-work.png" alt="" class="img-fluid" srcset="assets/image/how-it-work.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features section  -->
+    <section class="features">
+        <div class="gowave-container">
+            <div class="gowave-row">
+                <div class="gowave-col-md-12 col-12">
+                        <h2 class="title">Features</h2>
+                </div>
+                <div class="gowave-col-md-3 col-12">
+                    <div class="content-f">
+                        <div class="d-flex">
+                            <img src="assets/image/interactive.svg" alt=""  srcset="assets/image/interactive.svg"> 
+                            <h2 >Interactive Quizzes</h2>
+                        </div>
+                        <p>
+                            Explore diverse interactive engaging a wide range of subjects, boost knowledge retention.
+                        </p>
+                    </div>
+                    <div class="content-f">
+                        <div class="d-flex">
+                            <img src="assets/image/tokenicon.svg" alt=""  srcset="assets/image/tokenicon.svg"> 
+                            <h2 >HBAR token as rewards</h2>
+                        </div>
+                        <p>
+                            Top performers in competiton recieve HBAR tokens as reward.
+                        </p>
+                    </div>
+                </div>
+                <div class="gowave-col-md-6 col-12 text-center">
+                    <div class="about-image">
+                        <img src="assets/image/feature.svg" alt="" class="img-fluid" width="400px" srcset="assets/image/feature.svg">
+                    </div>
+                    <p>Gamification poured into every quizzes</p>
+                </div>
+                <div class="gowave-col-md-3 col-12">
+                    <div class="content-f">
+                        <div class="d-flex">
+                            <img src="assets/image/awardicon.svg" alt=""  srcset="assets/image/awardicon.svg"> 
+                            <h2 >Competition Hosting</h2>
+                        </div>
+                        <p>
+                            Users can create and manage their own competitions with customizable value
+                        </p>
+                    </div>
+                    <div class="content-f">
+                        <div class="d-flex">
+                            <img src="assets/image/wallet.svg" alt=""  srcset="assets/image/wallet.svg"> 
+                            <h2 >Token Wallet</h2>
+                        </div>
+                        <p>
+                            A secure wallet for users to manage their earned HBAR tokens.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
 
 
-<button (click)="loginFunction()" >Login</button>
-<button (click)="getDisplayname()" >display</button>
+    <!-- testimonial  -->
+    <section class="review">
+        <div class="gowave-container">
+            <div class="gowave-row">
+                <div class="gowave-col-md-12 col-12">
+                    <div class="text-start">
+                        <h2>People say about the app?</h2>
+                        <p>At Gowave we use the method people say about it</p>
+                    </div>
+                </div> 
+            </div>
+        </div>    
+        <div id="review-silder" class="review-silder" >
+            <div class="review-box review-content">
+                <div class="review-left">
+                    <p>
+                        I am a proactive hobbylist who plays interactive games, especially skill-based
+                        card games and video games. It’s a triumph that redefines the very essence 
+                        of gaming, pushing players to their limits and rewarding them with unrivaled
+                        satisfaction.
+                    </p>
+                    <div class="review-left-content">
+                        <span class="review-name">Name of Player </span>
+                        <span class="review-num">No of years palyed</span>
+                    </div>
+                </div>
+                <div class="review-right">
+                    <img src="assets/image/review.svg" alt="" width="" class="img-">
+                </div>
+            </div>
+            <div class="review-box review-content">
+                <div class="review-left">
+                    <p>
+                        As a passionate gamer, I embarked on an unforgettable journey with this skill-based game. It's a testament to the developer's commitment to delivering an unparalleled gaming adventure.
+                    </p>
+                    <div class="review-left-content">
+                        <span class="review-name">Name of Player </span>
+                        <span class="review-num">No of years palyed</span>
+                    </div>
+                </div>
+                <div class="review-right">
+                    <img src="assets/image/review1.svg" alt="" width="" class="img-">
+                </div>
+            </div>
+        </div>     
+    </section>
+
+    <section class="subscribe">
+        <div class="overlay-shape1"><img src="assets/image/shape1.svg" width="180" alt="shape"></div>
+        <div class="overlay-shape2"><img src="assets/image/shape2.svg" width="180" alt="shape"></div>
+        <div class="overlay-shape3"><img src="assets/image/star.png" width="100" alt="shape"></div>
+        <div class="overlay-shape4"><img src="assets/image/share.svg" width="50" alt="shape"></div>
+        <div class="gowave-container">
+            <div class="gowave-row ">
+                <div class="gowave-col-md-12 col-12 mb-3">
+                    <h3>
+                        Subscribe to get information, latest news and other
+                        interesting offers about Gowave
+                    </h3>
+                </div>
+                <div class="gowave-col-md-12 col-12 mb-3">
+                    <form action="" method="post" class="d-flex justify-content-center">
+                        <div class="position-relative">
+                            <input type="email" name="" class="" id="" placeholder="Your email">
+                            <div class="position-absolute">
+                                <img src="assets/image/envelope.png" width="20" alt="">
+                            </div>
+                            <input type="submit" value="Subscribe">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>        
+    </section>
+
+    <footer class="footer">
+        <div class="gowave-container">
+            <div class="gowave-row">
+                <div class="gowave-col-md-4 col-12">
+                    <div class="footer-logo" style="padding-top: 20px;">
+                        <img src="assets/image/footer-logo.svg" alt="" srcset="assets/image/footer-logo.svg">
+                    </div>
+                    <p class="footer-p">Explore diverse interactive quizzes across subjects, boost knowledge retention, and create personalized competitions. </p>
+                </div> 
+                <div class="gowave-col-md-4 col-12 offset-sm-1">
+                    <div class="footer-link ">
+                        <h3>QUICK LINKS</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Products</a></li>
+                            <li><a href="#">Apps&Games</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gowave-col-md-3 col-12">
+                    <div class="footer-link">
+                        <h3>CONTACT US</h3>
+                        <ul>
+                            <a href="#"><img src="assets/image/instagram icon.svg" alt=""></a>
+                            <a href="#"><img src="assets/image/icon _twitter.svg" alt=""></a>
+                            <a href="#"><img src="assets/image/facebook icon.svg" alt=""></a>
+                            <a href="#"><img src="assets/image/icon _linkedin original.svg" alt=""></a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gowave-col-md-12 col-12" style="padding-top:50px;">
+                    <p class="copyright">Copyright © <script>document.write(new Date().getFullYear())</script> Gowave.com All Right Reserved</p>
+                </div>
+            </div>
+        </div>           
+    </footer>
+</body>
+<!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" ></script>
+<script src="assets/js/script.js"></script> -->
+</html>

@@ -18,6 +18,10 @@ import { MygamesComponent } from './mygames/mygames.component';
 import { AuthService } from './services/auth.service';
 import { PlaygameComponent } from './playgame/playgame.component';
 import { LoginComponent } from './login/login.component';
+import { AboutComponent } from './about/about.component';
+import { SupportComponent } from './support/support.component';
+import { SigninComponent } from './signin/signin.component';
+import { NavComponent } from './nav/nav.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBOBefVMKOX7HeAvnuBlzHPElbXY9eoBC8",
@@ -37,7 +41,11 @@ const firebaseConfig = {
     GameComponent,
     MygamesComponent,
     PlaygameComponent,
-    LoginComponent
+    LoginComponent,
+    AboutComponent,
+    SupportComponent,
+    SigninComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

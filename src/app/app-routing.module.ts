@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './about/about.component';
 import { GameComponent } from './game/game.component';
 import { HomeComponent } from './home/home.component';
 import { MygamesComponent } from './mygames/mygames.component';
 import { NameComponent } from './name/name.component';
 import { NamedetailsComponent } from './namedetails/namedetails.component';
 import { PlaygameComponent } from './playgame/playgame.component';
+import { SigninComponent } from './signin/signin.component';
+import { SupportComponent } from './support/support.component';
 
 const routes: Routes = [
   {
@@ -31,6 +34,18 @@ const routes: Routes = [
   {
     path: 'playgamegame/:name',
     component: PlaygameComponent,
+  },
+  {
+    path: 'signin',
+    component: SigninComponent,
+  },
+  {
+    path: 'support',
+    component: SupportComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
   },
   // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
