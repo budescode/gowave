@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Createclass } from '../classes/createclass';
 import { Detailsclass } from '../classes/detailsclass';
 import { Leadershipclass } from '../classes/leadershipclass';
@@ -23,9 +25,11 @@ export class GameComponent implements OnInit {
   datalist:Detailsclass[] = []
   index = 0; //this will be changed along with the data list.
   leadershipList:Leadershipclass[] = []
+  notifier: NotifierService;
 
-
-  constructor(private firestore: AngularFirestore, private router: Router,private actRoute: ActivatedRoute,) { 
+  constructor(private firestore: AngularFirestore, private router: Router,private actRoute: ActivatedRoute, private spinner: NgxSpinnerService, notifierService: NotifierService) {
+    this.notifier = notifierService; 
+    
     console.log('initialize....')
     this.actRoute.params.subscribe((data)=> {
       var theid = data['name']
@@ -35,13 +39,31 @@ export class GameComponent implements OnInit {
   .snapshotChanges()
   .subscribe(
     (querySnapshot) => {
+      console.log('the qyeerys hot us,,', querySnapshot)
+      if(querySnapshot.length == 0){
+
+        console.log('it is not there..')
+        this.notifier.notify('error', 'Data not found!')
+        
+        this.router.navigate(['/dashboard/hostgame'])
+        return Createclass.initializeData();
+  }
       const data: Createclass[]   = querySnapshot.map((docChange) => {
+
+      
         const id = docChange.payload.doc.id;
+        var responsedata:any = docChange.payload.doc.data()
+        var start = responsedata['start']
+        var end = responsedata['end']
+        this.start = start
+        this.end = end
+        
         // get the list of questions once if it has not been gotten before.
         if(this.docId==''){
           this.docId = id
           console.log('doc id is..', this.docId)
           this.actRoute.params.subscribe((data) => {
+            
             const theid = data['name'];
             this.dataId = theid;          
             this.firestore
@@ -65,7 +87,7 @@ export class GameComponent implements OnInit {
       });
       this.questiondata  = data[0]
       
-      
+      return [];
       // Further processing of the filtered and streamed data
     },
     (error) => {
@@ -122,6 +144,7 @@ async startGame(){
   this.index = 0
   this.start = true  
   await this.updateGame({'start':true});
+  
   
   console.log('staryed...')  
     

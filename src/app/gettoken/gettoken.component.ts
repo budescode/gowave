@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { NotifierService } from 'angular-notifier';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Client, PrivateKey, AccountId, TokenCreateTransaction, AccountCreateTransaction, AccountBalanceQuery, Hbar, TransferTransaction, FileCreateTransaction, ContractCreateTransaction, ContractExecuteTransaction, ContractFunctionParameters, ContractCallQuery } from "@hashgraph/sdk";
 
 @Component({
   selector: 'app-gettoken',
@@ -62,9 +63,28 @@ const query = this.firestore.collection('userprofile',  (ref) => ref.where('emai
     if(this.accountid == '' 
     
     || this.privatekey == ''){
-      this.notifier.notify('error', 'FIll all fields')
+      this.notifier.notify('error', 'Fill all fields')
       return
     }
+    
+    
+
+    try{
+      const myAccountId = AccountId.fromString(this.accountid.toString());
+    }catch(e){
+      console.log('there is error11', e)
+      this.notifier.notify('error', 'account ID is invalid')
+      return
+    }
+    try{
+      const myPrivateKey = PrivateKey.fromString(this.privatekey.toString());
+    }catch(e){
+      console.log('there is error22', e)
+      this.notifier.notify('error', 'Private Key is invalid')
+      return
+    }
+    this.spinner.show()
+
     const email = localStorage.getItem('email')
     await this.firestore.collection('userprofile').ref.where('email', '==', email).get().then(
       async (querySnapshot) => {
@@ -79,6 +99,7 @@ const query = this.firestore.collection('userprofile',  (ref) => ref.where('emai
             'accountID': this.accountid,
             'privateKey': this.privatekey
           })
+          this.spinner.hide()
           this.notifier.notify('success', 'Successfully Updated!')
         } else {     
         

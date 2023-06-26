@@ -17,7 +17,7 @@ import { GameComponent } from './game/game.component';
 import { MygamesComponent } from './mygames/mygames.component';
 import { AuthService } from './services/auth.service';
 import { PlaygameComponent } from './playgame/playgame.component';
-import { LoginComponent } from './login/login.component';
+
 import { AboutComponent } from './about/about.component';
 import { SupportComponent } from './support/support.component';
 import { SigninComponent } from './signin/signin.component';
@@ -47,7 +47,7 @@ const firebaseConfig = {
     GameComponent,
     MygamesComponent,
     PlaygameComponent,
-    LoginComponent,
+    
     AboutComponent,
     SupportComponent,
     SigninComponent,

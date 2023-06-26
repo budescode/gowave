@@ -29,14 +29,16 @@ export class AuthService {
         console.log('You have been successfully logged in!', result.credential?.signInMethod, result.user?.displayName);
         this.afAuth.currentUser.then(async (e)=>{
           console.log(e, 'okay oo..')
-          
-          if(e?.email!=null){
-           await  this.getOrCreateUserProfile(e!.email.toString())
-            localStorage.setItem('email', e.email)
-          }
           if(e?.displayName!=null){
             localStorage.setItem('displayName', e.displayName)
           }
+
+          if(e?.email!=null){
+            localStorage.setItem('email', e.email)
+            await  this.getOrCreateUserProfile(e!.email.toString())
+            
+          }
+        
           
         })
       })

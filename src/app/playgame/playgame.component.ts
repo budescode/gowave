@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-
+import { NotifierService } from 'angular-notifier';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Createclass } from '../classes/createclass';
 import { Detailsclass } from '../classes/detailsclass';
@@ -26,28 +27,61 @@ export class PlaygameComponent implements OnInit {
   index = 0; //this will be changed along with the data list.
   answered = false; // will be true when they have answeed a question
   timer :any; // Global variable
+  notifier: NotifierService;
 
 
-
-  constructor(private firestore: AngularFirestore, private router: Router,private actRoute: ActivatedRoute,) { 
-    const myemail = localStorage.getItem('email')
-    if(myemail == null){
-      ///redirect
-    }
+  constructor(private firestore: AngularFirestore, private router: Router,private actRoute: ActivatedRoute, private spinner: NgxSpinnerService, notifierService: NotifierService) {
+    this.notifier = notifierService; 
+    
+   
     console.log('initialize....')
     this.actRoute.params.subscribe((data)=> {
       var theid = data['name']
       this.code = theid
-      console.log('qZAPp5shX35w9OXhyvXq', this.code)
-      this.getOrCreateUser(myemail!, this.code)
+      
+      // this.getOrCreateUser(myemail!, this.code)
 
-///////////////////get  game code data
-  this.firestore.collection('name', ref => ref.where('code', '==', this.code))
+      this.getGameData()
+
+
+
+
+
+         
+      ////////////////////////////
+
+
+    })
+  }
+
+  async getGameData(){
+    ///////////////////get  game code data
+    console.log('getting game data..')
+    const myemail = localStorage.getItem('email')
+  await this.firestore.collection('name', ref => ref.where('code', '==', this.code))
   .snapshotChanges()
   .subscribe(
     (querySnapshot) => {
+      console.log('snapshot..', querySnapshot,'the snapshowt hs here..')
+      if(querySnapshot.length == 0){
+
+        console.log('it is not there..')
+        this.notifier.notify('error', 'Data not found!')
+        
+        this.router.navigate(['/'])
+        return
+    }else{
+      this.getOrCreateUser(myemail!, this.code)
+      this.getMyUserData()
+      this.getLeadershipBoardData()
+    }
       const data: Createclass[]   = querySnapshot.map((docChange) => {
         const id = docChange.payload.doc.id;
+        var responsedata:any = docChange.payload.doc.data()
+        var start = responsedata['start']
+        var end = responsedata['end']
+        this.start = start
+        this.end = end
         console.log(docChange.payload.doc, 'the final data....')
         // get the list of questions once if it has not been gotten before.
         // if(this.docId==''){
@@ -94,16 +128,20 @@ export class PlaygameComponent implements OnInit {
 
         const documentData = docChange.payload.doc.data();
         return Object.assign({ id }, documentData) as unknown as Createclass;
+        
       });
-      
+      return []
       // Further processing of the filtered and streamed data
     },
     (error) => {
       console.log('Error:', error);
     }
   );
+  }
 
-  //////////////////////////////////get my user..//////////////////////////////////
+  getMyUserData(){
+      //////////////////////////////////get my user..//////////////////////////////////
+      const myemail = localStorage.getItem('email')
   this.firestore
   .collection('leadershipboard', (ref) => ref.where('code', '==', this.code).where('email', '==', myemail)
   ).snapshotChanges()
@@ -125,30 +163,25 @@ export class PlaygameComponent implements OnInit {
   },
 
   );
-
-  ///////////////////end leadershhip board..////////////////////
-       this.firestore
-              .collection('leadershipboard', (ref) => ref.where('code', '==', this.code).orderBy('score', 'desc')              
-              ).snapshotChanges()
-              .subscribe(
-                (querySnapshot) => {
-                const data: Leadershipclass[] = querySnapshot.map((docChange) => {
-                  const id = docChange.payload.doc.id;
-                  const documentData = docChange.payload.doc.data();
-                  return Object.assign({ id }, documentData) as unknown as Leadershipclass;
-                });
-                this.leadershipList = data;
-              },
-            
-              );
-
-         
-      ////////////////////////////
-
-
-    })
   }
 
+  getLeadershipBoardData(){
+      ///////////////////end leadershhip board..////////////////////
+      this.firestore
+      .collection('leadershipboard', (ref) => ref.where('code', '==', this.code).orderBy('score', 'desc')              
+      ).snapshotChanges()
+      .subscribe(
+        (querySnapshot) => {
+        const data: Leadershipclass[] = querySnapshot.map((docChange) => {
+          const id = docChange.payload.doc.id;
+          const documentData = docChange.payload.doc.data();
+          return Object.assign({ id }, documentData) as unknown as Leadershipclass;
+        });
+        this.leadershipList = data;
+      },
+    
+      );
+  }
 submitAnswer(option:string){
   this.answered = true;
   
@@ -161,7 +194,7 @@ submitAnswer(option:string){
   var score =  (point * timevalue) + currentScore 
   console.log('this is my score..', score)
   this.updateScore(score)
-  this.stopTimer()
+  // this.stopTimer()
 
 }
 updateScore(val:number){
